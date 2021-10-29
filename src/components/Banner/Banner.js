@@ -12,7 +12,13 @@ const Banner = () => {
                         src="https://beautifulbangladesh.gov.bd/storage/backend/images/upload/thumbnil/tajingdong-keokradon-2020-07-03-5eff8478e0cd5.jpg"
                         alt="First slide"
                     />
-                    <Carousel.Caption>
+                    <Carousel.Caption
+                        style={{
+                            transform: 'translateY(-50%)',
+                            bottom: 'initial',
+                            top: '50%',
+                        }}
+                    >
                         <h1>Explore Beautiful Bangladesh</h1>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -24,7 +30,13 @@ const Banner = () => {
                         alt="Second slide"
                     />
 
-                    <Carousel.Caption>
+                    <Carousel.Caption
+                        style={{
+                            transform: 'translateY(-50%)',
+                            bottom: 'initial',
+                            top: '50%',
+                        }}
+                    >
                         <h1>Plan Your Tour With Us</h1>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -36,7 +48,13 @@ const Banner = () => {
                         alt="Third slide"
                     />
 
-                    <Carousel.Caption>
+                    <Carousel.Caption
+                        style={{
+                            transform: 'translateY(-50%)',
+                            bottom: 'initial',
+                            top: '50%',
+                        }}
+                    >
                         <h1>Celebrate With Us</h1>
                     </Carousel.Caption>
                 </Carousel.Item>
