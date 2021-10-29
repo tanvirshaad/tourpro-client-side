@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, ButtonGroup, Card, Col } from 'react-bootstrap';
+import { BsFillClockFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 const Service = ({ service }) => {
@@ -13,7 +14,10 @@ const Service = ({ service }) => {
                         Explore {name}
                     </Card.Title>
                     <Card.Text>{description}</Card.Text>
-                    <p className="text-success fw-bold">{duration}</p>
+                    <div className="text-success fw-bold d-flex align-items-center">
+                        <BsFillClockFill />
+                        <span className="ms-2">{duration}</span>
+                    </div>
                 </Card.Body>
                 <Card.Footer className="text-center">
                     <Link to={`/booking/${id}`}>
