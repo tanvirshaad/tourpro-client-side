@@ -1,8 +1,10 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link, NavLink } from 'react-router-dom';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
+    const { user, logOut } = useAuth();
     return (
         <div>
             <Navbar bg="dark" variant="dark">
@@ -27,24 +29,31 @@ const Header = () => {
                                         textDecoration: 'none',
                                         marginRight: '10px',
                                     }}
-                                    to="/login"
-                                >
-                                    Login
-                                </Link>
-                                <Link
-                                    style={{
-                                        color: 'white',
-                                        textDecoration: 'none',
-                                        marginRight: '10px',
-                                    }}
                                     to="#pricing"
                                 >
                                     Pricing
                                 </Link>
                             </div>
                             <div>
-                                <Navbar.Text>
-                                    Signed in as: <a href="#login">Mark Otto</a>
+                                {user?.email ? (
+                                    <Button onClick={logOut} variant="light">
+                                        Logout
+                                    </Button>
+                                ) : (
+                                    <Link
+                                        style={{
+                                            color: 'white',
+                                            textDecoration: 'none',
+                                            marginRight: '10px',
+                                        }}
+                                        to="/login"
+                                    >
+                                        Login
+                                    </Link>
+                                )}
+                                <Navbar.Text className="ms-3">
+                                    Signed in as:{' '}
+                                    <a href="/login">{user?.displayName}</a>
                                 </Navbar.Text>
                             </div>
                         </div>
