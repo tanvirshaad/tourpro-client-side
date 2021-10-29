@@ -8,7 +8,7 @@ const About = () => {
                 <Row>
                     <Col lg={12}>
                         <h1 className="text-center text-black fw-bold fs-1">
-                            Abou TourPro
+                            About TourPro
                         </h1>
                     </Col>
                 </Row>

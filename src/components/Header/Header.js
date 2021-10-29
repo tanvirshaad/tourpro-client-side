@@ -9,36 +9,45 @@ const Header = () => {
                 <Container>
                     <Navbar.Brand href="#home">TourPro</Navbar.Brand>
                     <Nav className="ms-auto">
-                        <Link
-                            to="/home"
-                            style={{
-                                color: 'white',
-                                textDecoration: 'none',
-                                marginRight: '10px',
-                            }}
-                        >
-                            Home
-                        </Link>
-                        <Link
-                            style={{
-                                color: 'white',
-                                textDecoration: 'none',
-                                marginRight: '10px',
-                            }}
-                            to="#features"
-                        >
-                            Features
-                        </Link>
-                        <Link
-                            style={{
-                                color: 'white',
-                                textDecoration: 'none',
-                                marginRight: '10px',
-                            }}
-                            to="#pricing"
-                        >
-                            Pricing
-                        </Link>
+                        <div className="d-flex">
+                            <div>
+                                <Link
+                                    to="/home"
+                                    style={{
+                                        color: 'white',
+                                        textDecoration: 'none',
+                                        marginRight: '10px',
+                                    }}
+                                >
+                                    Home
+                                </Link>
+                                <Link
+                                    style={{
+                                        color: 'white',
+                                        textDecoration: 'none',
+                                        marginRight: '10px',
+                                    }}
+                                    to="/login"
+                                >
+                                    Login
+                                </Link>
+                                <Link
+                                    style={{
+                                        color: 'white',
+                                        textDecoration: 'none',
+                                        marginRight: '10px',
+                                    }}
+                                    to="#pricing"
+                                >
+                                    Pricing
+                                </Link>
+                            </div>
+                            <div>
+                                <Navbar.Text>
+                                    Signed in as: <a href="#login">Mark Otto</a>
+                                </Navbar.Text>
+                            </div>
+                        </div>
                     </Nav>
                 </Container>
             </Navbar>
