@@ -1,16 +1,44 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
         <div>
-            <Navbar bg="primary" variant="dark">
+            <Navbar bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand href="#home">TourPro</Navbar.Brand>
                     <Nav className="ms-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        <Link
+                            to="/home"
+                            style={{
+                                color: 'white',
+                                textDecoration: 'none',
+                                marginRight: '10px',
+                            }}
+                        >
+                            Home
+                        </Link>
+                        <Link
+                            style={{
+                                color: 'white',
+                                textDecoration: 'none',
+                                marginRight: '10px',
+                            }}
+                            to="#features"
+                        >
+                            Features
+                        </Link>
+                        <Link
+                            style={{
+                                color: 'white',
+                                textDecoration: 'none',
+                                marginRight: '10px',
+                            }}
+                            to="#pricing"
+                        >
+                            Pricing
+                        </Link>
                     </Nav>
                 </Container>
             </Navbar>

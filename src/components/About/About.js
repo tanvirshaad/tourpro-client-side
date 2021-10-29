@@ -13,13 +13,13 @@ const About = () => {
                     </Col>
                 </Row>
                 <Row className="mt-5">
-                    <Col lg={6} md={12} xs={12}>
+                    <Col lg={6} md={12} sm={12}>
                         <img
                             src="https://www.tourx-react.egenslab.com/static/media/about-1.bcfbc984.png"
                             alt=""
                         />
                     </Col>
-                    <Col lg={6} md={12} xs={12}>
+                    <Col lg={6} md={12} sm={12}>
                         <h3>The Best Travel Agency Company in Bangladesh</h3>
                         <p>
                             Lorem ipsum, dolor sit amet consectetur adipisicing

@@ -13,7 +13,7 @@ const Features = () => {
                     </Col>
                 </Row>
                 <Row className="py-5">
-                    <Col lg={4} md={6} xs={12}>
+                    <Col lg={4} md={6} sm={12}>
                         <div
                             className="h-100"
                             style={{
@@ -32,7 +32,7 @@ const Features = () => {
                             <h3 className="mt-3">100% trusted travel agency</h3>
                         </div>
                     </Col>
-                    <Col lg={4} md={6} xs={12}>
+                    <Col lg={4} md={6} sm={12}>
                         <div
                             className="h-100"
                             style={{
@@ -51,7 +51,7 @@ const Features = () => {
                             <h3 className="mt-3">Best Tour Guide</h3>
                         </div>
                     </Col>
-                    <Col lg={4} md={6} xs={12}>
+                    <Col lg={4} md={6} sm={12}>
                         <div
                             className="h-100"
                             style={{
