@@ -4,7 +4,7 @@ import { BsFillClockFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 const Service = ({ service }) => {
-    const { name, img, description, duration, price, id } = service;
+    const { name, img, description, duration, price, _id } = service;
     return (
         <div className="col-lg-4 g-4">
             <Card className="h-100">
@@ -20,7 +20,7 @@ const Service = ({ service }) => {
                     </div>
                 </Card.Body>
                 <Card.Footer className="text-center">
-                    <Link to={`/booking/${id}`}>
+                    <Link to={`/booking/${_id}`}>
                         <Button variant="primary">
                             Book Now For {price}{' '}
                             <span className="fw-bolder">৳</span>

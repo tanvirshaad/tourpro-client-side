@@ -11,7 +11,7 @@ const Header = () => {
                 <Container>
                     <Navbar.Brand href="#home">TourPro</Navbar.Brand>
                     <Nav className="ms-auto">
-                        <div className="d-flex">
+                        <div className="d-flex align-items-center justify-content-center">
                             <div>
                                 <Link
                                     to="/home"
@@ -23,22 +23,27 @@ const Header = () => {
                                 >
                                     Home
                                 </Link>
-                                <Link
-                                    style={{
-                                        color: 'white',
-                                        textDecoration: 'none',
-                                        marginRight: '10px',
-                                    }}
-                                    to="#pricing"
-                                >
-                                    Pricing
-                                </Link>
                             </div>
-                            <div>
+                            <div className="d-flex">
                                 {user?.email ? (
-                                    <Button onClick={logOut} variant="light">
-                                        Logout
-                                    </Button>
+                                    <div>
+                                        <Link
+                                            to="/home"
+                                            style={{
+                                                color: 'white',
+                                                textDecoration: 'none',
+                                                marginRight: '10px',
+                                            }}
+                                        >
+                                            All Orders
+                                        </Link>
+                                        <Button
+                                            onClick={logOut}
+                                            variant="light"
+                                        >
+                                            Logout
+                                        </Button>
+                                    </div>
                                 ) : (
                                     <Link
                                         style={{

@@ -1,0 +1,10 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+form input {
+    margin-bottom: 10px;
+    border: 2px solid #0b5ed7;
+    border-radius: 3px;
+    padding: 5px 10px;
+}

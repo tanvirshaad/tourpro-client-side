@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../hooks/useAuth';
 import { useParams } from 'react-router';
-
+import './Booking.css';
+import { BsFillClockFill } from 'react-icons/bs';
 const Booking = () => {
-    const { id } = useParams();
+    const { _id } = useParams();
     const [service, setServcie] = useState({});
+    const { user } = useAuth();
     const {
         register,
         handleSubmit,
         formState: { errors },
         reset,
     } = useForm();
-    useEffect(() => {}, []);
+    useEffect(() => {
+        const url = `http://localhost:5000/services/${_id}`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => setServcie(data));
+    }, []);
     return (
         <div>
             <Container>
@@ -25,13 +33,17 @@ const Booking = () => {
                 </Row>
                 <Row>
                     <Col lg={6} md={12} sm={12}>
-                        <h2>This is service: {id}</h2>
+                        <Card border="primary" style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={service.img} />
+                            <Card.Body>
+                                <Card.Title>{service.name}</Card.Title>
+                                <BsFillClockFill className="text-success" />
+                                <span className="ms-2">{service.duration}</span>
+                            </Card.Body>
+                        </Card>
                     </Col>
                     <Col lg={6} md={12} sm={12}>
-                        {/* <form
-                            className="shipping-form"
-                            onSubmit={handleSubmit(onSubmit)}
-                        >
+                        <form className="shipping-form" onSubmit={handleSubmit}>
                             <input
                                 defaultValue={user.displayName}
                                 {...register('name')}
@@ -61,8 +73,11 @@ const Booking = () => {
                                 defaultValue=""
                                 {...register('phone')}
                             />
-                            <input type="submit" />
-                        </form> */}
+                            <input
+                                className="bg-primary text-white"
+                                type="submit"
+                            />
+                        </form>
                     </Col>
                 </Row>
             </Container>
