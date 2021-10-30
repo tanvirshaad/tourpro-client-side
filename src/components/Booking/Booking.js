@@ -21,6 +21,24 @@ const Booking = () => {
             .then((res) => res.json())
             .then((data) => setServcie(data));
     }, []);
+    const onSubmit = (data) => {
+        const { _id, name, price } = service;
+        data.order = { _id, name, price };
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                if (result.insertedId) {
+                    alert('Your order is processing');
+                    reset();
+                }
+            });
+    };
     return (
         <div>
             <Container>
@@ -43,7 +61,10 @@ const Booking = () => {
                         </Card>
                     </Col>
                     <Col lg={6} md={12} sm={12}>
-                        <form className="shipping-form" onSubmit={handleSubmit}>
+                        <form
+                            className="shipping-form"
+                            onSubmit={handleSubmit(onSubmit)}
+                        >
                             <input
                                 defaultValue={user.displayName}
                                 {...register('name')}
