@@ -10,6 +10,8 @@ import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AllOrders from './components/AllOrders/AllOrders';
 import MyOrder from './components/MyOrders/MyOrders';
+import Footer from './components/Footer/Footer';
+import AddService from './components/AddService/AddService';
 
 function App() {
     return (
@@ -37,6 +39,7 @@ function App() {
                             <Login></Login>
                         </Route>
                     </Switch>
+                    <Footer></Footer>
                 </BrowserRouter>
             </AuthProvider>
         </div>

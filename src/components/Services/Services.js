@@ -1,16 +1,25 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 import Service from '../Service/Service';
 
 const Services = () => {
     const [services, setServices] = useState([]);
+    const { isLoading } = useAuth();
     useEffect(() => {
         fetch('https://macabre-warlock-05384.herokuapp.com/services')
             .then((res) => res.json())
             .then((data) => setServices(data));
     }, []);
+    if (isLoading) {
+        return (
+            <center>
+                <Spinner animation="border" variant="primary" />
+            </center>
+        );
+    }
     return (
         <div className="my-5">
             <Container>

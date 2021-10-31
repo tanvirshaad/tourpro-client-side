@@ -26,7 +26,7 @@ const AllOrders = () => {
             });
     };
     return (
-        <div>
+        <div className="py-5">
             <Container>
                 <Row>
                     <Col lg={12}>
@@ -59,9 +59,10 @@ const AllOrders = () => {
                                         <Card.Text>
                                             <h5>{allOrder.order.name}</h5>
                                             <h6>
-                                                Order Details:
+                                                Price:
                                                 {allOrder.order.price}
                                             </h6>
+                                            <h6>Address: {allOrder.address}</h6>
                                         </Card.Text>
                                         <Button
                                             onClick={() =>

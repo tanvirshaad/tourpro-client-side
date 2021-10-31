@@ -24,7 +24,7 @@ const Booking = () => {
     const onSubmit = (data) => {
         const { _id, name, price, img } = service;
         data.order = { _id, name, price, img };
-        console.log(data);
+
         fetch('https://macabre-warlock-05384.herokuapp.com/orders', {
             method: 'POST',
             headers: {

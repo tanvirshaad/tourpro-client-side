@@ -47,6 +47,7 @@ const Header = () => {
                                         >
                                             All Orders
                                         </Link>
+
                                         <Button
                                             onClick={logOut}
                                             variant="light"

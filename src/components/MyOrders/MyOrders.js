@@ -29,7 +29,7 @@ const MyOrder = () => {
             });
     };
     return (
-        <div>
+        <div className="py-5">
             <Container>
                 <Row>
                     <Col lg={12}>
