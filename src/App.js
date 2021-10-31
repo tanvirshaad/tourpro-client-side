@@ -9,6 +9,7 @@ import Login from './components/Login/Login';
 import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AllOrders from './components/AllOrders/AllOrders';
+import MyOrder from './components/MyOrders/MyOrders';
 
 function App() {
     return (
@@ -26,7 +27,10 @@ function App() {
                         <PrivateRoute path="/booking/:_id">
                             <Booking></Booking>
                         </PrivateRoute>
-                        <Route path="/allorders">
+                        <Route path="/myOrders">
+                            <MyOrder></MyOrder>
+                        </Route>
+                        <Route path="/allOrders">
                             <AllOrders></AllOrders>
                         </Route>
                         <Route path="/login">

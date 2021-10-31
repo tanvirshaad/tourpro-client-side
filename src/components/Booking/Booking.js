@@ -22,8 +22,9 @@ const Booking = () => {
             .then((data) => setServcie(data));
     }, []);
     const onSubmit = (data) => {
-        const { _id, name, price } = service;
-        data.order = { _id, name, price };
+        const { _id, name, price, img } = service;
+        data.order = { _id, name, price, img };
+        console.log(data);
         fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {

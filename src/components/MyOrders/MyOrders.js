@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 
-const AllOrders = () => {
-    const [allOrders, setAllOrders] = useState([]);
+const MyOrder = () => {
+    const { user } = useAuth();
+    const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/orders')
             .then((res) => res.json())
-            .then((data) => setAllOrders(data));
+            .then((data) => setMyOrders(data));
     }, []);
+    const orders = myOrders.filter((order) => order.name === user.displayName);
     const handleDelete = (id) => {
         const url = `http://localhost:5000/orders/${id}`;
         fetch(url, {
@@ -15,10 +18,10 @@ const AllOrders = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 alert('Order deleted');
-                const remaining = allOrders.filter((order) => order._id !== id);
-                setAllOrders(remaining);
+                const remaining = orders.filter((order) => order._id !== id);
+                setMyOrders(remaining);
             });
     };
     return (
@@ -27,41 +30,37 @@ const AllOrders = () => {
                 <Row>
                     <Col lg={12}>
                         <h1 className="fs-1 fw-bold text-center text-black">
-                            All Orders
+                            My Orders
                         </h1>
                     </Col>
                 </Row>
                 <Row>
-                    {allOrders.map((allOrder) => (
-                        <div key={allOrder._id} className="col-lg-4 g-4">
+                    {orders.map((order) => (
+                        <div key={order._id} className="col-lg-4 g-4">
                             <Container>
                                 <Card
                                     className="h-100"
                                     border="primary"
                                     style={{ width: '18rem' }}
                                 >
+                                    <Card.Img
+                                        variant="top"
+                                        src={order.order.img}
+                                    />
                                     <Card.Body>
                                         <Card.Title>
-                                            <h6>
-                                                Order no: {allOrder.order._id}
-                                            </h6>
-                                            <h3>
-                                                User:{' '}
-                                                <span className="text-primary">
-                                                    {allOrder.name}
-                                                </span>
-                                            </h3>
+                                            <h6>Order no: {order._id}</h6>
                                         </Card.Title>
                                         <Card.Text>
-                                            <h5>{allOrder.order.name}</h5>
+                                            <h5>{order.order.name}</h5>
                                             <h6>
-                                                Order Details:
-                                                {allOrder.order.price}
+                                                Price:
+                                                {order.order.price}
                                             </h6>
                                         </Card.Text>
                                         <Button
                                             onClick={() =>
-                                                handleDelete(allOrder._id)
+                                                handleDelete(order._id)
                                             }
                                             variant="danger"
                                         >
@@ -78,4 +77,4 @@ const AllOrders = () => {
     );
 };
 
-export default AllOrders;
+export default MyOrder;

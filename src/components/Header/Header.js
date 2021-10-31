@@ -28,7 +28,17 @@ const Header = () => {
                                 {user?.email ? (
                                     <div>
                                         <Link
-                                            to="/allorders"
+                                            to="/myOrders"
+                                            style={{
+                                                color: 'white',
+                                                textDecoration: 'none',
+                                                marginRight: '10px',
+                                            }}
+                                        >
+                                            My Orders
+                                        </Link>
+                                        <Link
+                                            to="/allOrders"
                                             style={{
                                                 color: 'white',
                                                 textDecoration: 'none',
