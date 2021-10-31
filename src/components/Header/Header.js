@@ -28,7 +28,7 @@ const Header = () => {
                                 {user?.email ? (
                                     <div>
                                         <Link
-                                            to="/home"
+                                            to="/allorders"
                                             style={{
                                                 color: 'white',
                                                 textDecoration: 'none',
