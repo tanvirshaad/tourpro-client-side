@@ -15,10 +15,14 @@ const AllOrders = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
-                alert('Order deleted');
-                const remaining = allOrders.filter((order) => order._id !== id);
-                setAllOrders(remaining);
+                let result = window.confirm('Are you sure to delete?');
+                if (result) {
+                    alert('Order deleted');
+                    const remaining = allOrders.filter(
+                        (order) => order._id !== id
+                    );
+                    setAllOrders(remaining);
+                }
             });
     };
     return (
