@@ -16,7 +16,7 @@ const Booking = () => {
         reset,
     } = useForm();
     useEffect(() => {
-        const url = `http://localhost:5000/services/${_id}`;
+        const url = `https://macabre-warlock-05384.herokuapp.com/services/${_id}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setServcie(data));
@@ -25,7 +25,7 @@ const Booking = () => {
         const { _id, name, price, img } = service;
         data.order = { _id, name, price, img };
         console.log(data);
-        fetch('http://localhost:5000/orders', {
+        fetch('https://macabre-warlock-05384.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

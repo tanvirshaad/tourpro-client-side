@@ -6,13 +6,13 @@ const MyOrder = () => {
     const { user } = useAuth();
     const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://macabre-warlock-05384.herokuapp.com/orders')
             .then((res) => res.json())
             .then((data) => setMyOrders(data));
     }, []);
     const orders = myOrders.filter((order) => order.name === user.displayName);
     const handleDelete = (id) => {
-        const url = `http://localhost:5000/orders/${id}`;
+        const url = `https://macabre-warlock-05384.herokuapp.com/orders/${id}`;
         fetch(url, {
             method: 'DELETE',
         })
