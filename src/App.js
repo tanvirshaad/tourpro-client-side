@@ -11,7 +11,6 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AllOrders from './components/AllOrders/AllOrders';
 import MyOrder from './components/MyOrders/MyOrders';
 import Footer from './components/Footer/Footer';
-import AddService from './components/AddService/AddService';
 import NotFound from './components/NotFound/NotFound';
 
 function App() {
